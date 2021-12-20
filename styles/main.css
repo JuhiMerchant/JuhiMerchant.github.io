@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Saira+Condensed&display=swap");
+
+html {
+  background-color: #f9f6f0;
+}
+
+body {
+  max-width: 960px;
+  height: 100%;
+  min-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url(../assets/bg.JPG);
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  font-family: "Saira Condensed", sans-serif;
+}
+.p1 {
+  font-size: 16pt;
+  line-height: 1.2;
+}
+
+.indexBody {
+  width: 90%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  text-align: start;
+  margin-left: 45px;
+}
+
+.logo {
+  width: 30%;
+}
+.profilePic {
+  float: right;
+  margin-top: 40px;
+  margin-right: 25px;
+}
+
+.bodyDiv {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  justify-content: space-around;
+  /* width: 70%; */
+  margin-top: 70px;
+  margin-left: 25px;
+}
+
+.skillBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+a:hover {
+  color: blue;
+}
+
+nav {
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #b3a1a1;
+}
+
+nav li {
+  display: inline;
+  float: right;
+  font-weight: bold;
+}
+
+li a {
+  display: block;
+  padding: 18px 20px;
+  color: black;
+  text-decoration: none;
+  font-size: 16pt;
+}
+
+footer {
+  margin-left: 10px;
+  margin-top: auto;
+}
+
+.title {
+  font-family: "Lucida Console", "Courier New", monospace;
+  text-align: center;
+  font-size: 30pt;
+}
+
+.aboutDesc {
+  font-size: 15pt;
+  line-height: 1.2;
+}
+
+.titleSkill {
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 27pt;
+  margin-left: 40px;
+  margin-bottom: 0px;
+}
+
+div#row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 0;
+  justify-content: space-around;
+}
+div#row img {
+  padding: 10px;
+  width: 31%;
+  transition: 0.8s opacity;
+}
+div#row:hover img {
+  opacity: 0.6;
+}
+div#row:hover img:hover {
+  opacity: 1;
+}
+
+.customHeight {
+  height: 400px;
+}
+
+.customHeight2 {
+  height: 600px;
+}
+
+.contactText {
+  text-align: center;
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  div#row {
+    flex-direction: column;
+  }
+  div#row img {
+    width: 90%;
+  }
+}
+
+@keyframes growProgressBar {
+  0%,
+  33% {
+    --pgPercentage: 0;
+  }
+  100% {
+    --pgPercentage: var(--value);
+  }
+}
+
+div[role="progressbar"] {
+  --size: 5rem;
+  --fg: rgba(9, 11, 14, 0.7);
+  --bg: #def;
+  --pgPercentage: var(--value);
+  animation: growProgressBar 3s 1 forwards;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(
+      closest-side,
+      white 80%,
+      transparent 0 99.9%,
+      white 0
+    ),
+    conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: calc(var(--size) / 5);
+  color: var(--fg);
+}
+
+div[role="progressbar"]::before {
+  counter-reset: percentage var(--value);
+  content: counter(percentage) "%";
+}
